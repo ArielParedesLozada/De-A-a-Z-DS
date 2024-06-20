@@ -4,7 +4,6 @@
  */
 package interfazjuegoaz;
 
-import Entidades.HiloJuego;
 import Entidades.Juego;
 import javax.swing.JOptionPane;
 
@@ -42,8 +41,9 @@ public class PantallaJuego extends javax.swing.JFrame {
         jBtnAgregar = new javax.swing.JButton();
         jBtnSalir = new javax.swing.JButton();
         jBtnIniciar = new javax.swing.JButton();
-        jBtnConfigurar = new javax.swing.JButton();
+        btnAyuda = new javax.swing.JButton();
         jLblTurnoParticipante1 = new javax.swing.JLabel();
+        btnConfiguracion = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
         jLabel2.setText("DE");
@@ -85,18 +85,28 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
 
-        jBtnConfigurar.setBackground(new java.awt.Color(255, 153, 102));
-        jBtnConfigurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BTNCONFI.png"))); // NOI18N
-        jBtnConfigurar.setContentAreaFilled(false);
-        jBtnConfigurar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBtnConfigurar.addActionListener(new java.awt.event.ActionListener() {
+        btnAyuda.setBackground(new java.awt.Color(255, 153, 102));
+        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ins.png"))); // NOI18N
+        btnAyuda.setContentAreaFilled(false);
+        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnConfigurarActionPerformed(evt);
+                btnAyudaActionPerformed(evt);
             }
         });
 
         jLblTurnoParticipante1.setFont(new java.awt.Font("Gill Sans Ultra Bold", 2, 24)); // NOI18N
         jLblTurnoParticipante1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
+
+        btnConfiguracion.setBackground(new java.awt.Color(255, 153, 102));
+        btnConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BTNCONFI.png"))); // NOI18N
+        btnConfiguracion.setContentAreaFilled(false);
+        btnConfiguracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfiguracionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,36 +116,45 @@ public class PantallaJuego extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jBtnConfigurar)
+                        .addComponent(btnConfiguracion)
                         .addGap(101, 101, 101)
-                        .addComponent(jBtnSalir))
+                        .addComponent(jBtnSalir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAyuda))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jBtnAgregar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jBtnIniciar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLblTurnoParticipante1)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(jBtnAgregar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addComponent(jBtnIniciar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(186, 186, 186)
+                                .addComponent(jLblTurnoParticipante1)))
+                        .addGap(0, 103, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jBtnConfigurar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLblTurnoParticipante1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBtnAgregar)
+                        .addGap(40, 40, 40)
+                        .addComponent(jBtnIniciar)
+                        .addGap(39, 39, 39)
+                        .addComponent(jBtnSalir)
+                        .addGap(0, 34, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnConfiguracion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAyuda, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLblTurnoParticipante1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBtnAgregar)
-                .addGap(40, 40, 40)
-                .addComponent(jBtnIniciar)
-                .addGap(39, 39, 39)
-                .addComponent(jBtnSalir)
-                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,7 +172,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgregarActionPerformed
-        PantallaAgregarJugadores pa = new PantallaAgregarJugadores();
+        PantallaJugadores pa = new PantallaJugadores();
         pa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBtnAgregarActionPerformed
@@ -172,11 +191,17 @@ public class PantallaJuego extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBtnIniciarActionPerformed
 
-    private void jBtnConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfigurarActionPerformed
+    private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
+        PantallaInstrucciones in = new PantallaInstrucciones();
+        in.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAyudaActionPerformed
+
+    private void btnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionActionPerformed
         PantallaConfiguracion pa = new PantallaConfiguracion();
         pa.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jBtnConfigurarActionPerformed
+    }//GEN-LAST:event_btnConfiguracionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,8 +239,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAyuda;
+    private javax.swing.JButton btnConfiguracion;
     private javax.swing.JButton jBtnAgregar;
-    private javax.swing.JButton jBtnConfigurar;
     private javax.swing.JButton jBtnIniciar;
     private javax.swing.JButton jBtnSalir;
     private javax.swing.JLabel jLabel2;

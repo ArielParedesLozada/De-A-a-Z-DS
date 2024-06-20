@@ -194,7 +194,7 @@ public class PantallaIniciarJuego extends javax.swing.JFrame {
         } else {
             this.hiloGeneral.esperaValidacion = true;
             this.hiloGeneral.currentRespuesta = palabra;
-            PantallaValidarPalabra pa = new PantallaValidarPalabra();
+            PantallaValidarPalabra pa = new PantallaValidarPalabra(palabra);
             pa.setVisible(true);
             System.out.println("Nueva ventana");
             dispose();

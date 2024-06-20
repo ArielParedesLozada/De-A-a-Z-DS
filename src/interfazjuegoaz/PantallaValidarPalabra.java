@@ -5,6 +5,9 @@
 package interfazjuegoaz;
 
 import Entidades.HiloJuego;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -13,15 +16,18 @@ import Entidades.HiloJuego;
 public class PantallaValidarPalabra extends javax.swing.JFrame {
 
     private HiloJuego hilo;
+    private String palabra;
     
     //Setea los labels del jugador, letra y palabra
 
     /**
      * Creates new form PantallaValidarPalabra
      */
-    public PantallaValidarPalabra() {
+    public PantallaValidarPalabra(String palabra) {
         this.hilo = HiloJuego.getHiloJuego();
+        this.palabra = palabra;
         initComponents();
+        jLblPalabra.setText(palabra);
         this.setLocationRelativeTo(null);
     }
 
@@ -39,6 +45,9 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jBtnIncorrecta = new javax.swing.JButton();
         jBtnCorrecta = new javax.swing.JButton();
+        jLblPalabra = new javax.swing.JLabel();
+        jLblLetraParticipante = new javax.swing.JLabel();
+        jLblExito = new javax.swing.JLabel();
 
         jLabel7.setFont(new java.awt.Font("Gill Sans Ultra Bold", 2, 24)); // NOI18N
         jLabel7.setText("LETRA:");
@@ -72,6 +81,14 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
             }
         });
 
+        jLblPalabra.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 24)); // NOI18N
+
+        jLblLetraParticipante.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 24)); // NOI18N
+
+        jLblExito.setFont(new java.awt.Font("Sitka Banner", 0, 18)); // NOI18N
+        jLblExito.setText("   ");
+        jLblExito.setAlignmentX(0.5F);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,25 +96,47 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jBtnCorrecta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBtnIncorrecta)))
+                        .addComponent(jBtnIncorrecta))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel4)))
                 .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLblExito, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLblPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(125, 125, 125))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLblLetraParticipante)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addComponent(jLblPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLblExito, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnCorrecta)
                     .addComponent(jBtnIncorrecta))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLblLetraParticipante)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,7 +147,7 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -117,10 +156,21 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
     private void jBtnIncorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncorrectaActionPerformed
         this.hilo.esperaValidacion = false;
         this.hilo.respuestaCorrecta = false;
+        String jugadorRemovido = this.hilo.currentJugador;
         this.hilo.removerJugadorActual(); // Eliminar al jugador actual
-        PantallaIniciarJuego pa = new PantallaIniciarJuego();
-        pa.setVisible(true);
-        dispose();
+        jLblExito.setText("Se removió a " + jugadorRemovido);
+        Timer timer = new Timer(2500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaIniciarJuego pa = new PantallaIniciarJuego();
+                pa.setVisible(true);
+                dispose();
+            }
+        });
+        jBtnCorrecta.setEnabled(false);
+        jBtnIncorrecta.setEnabled(false);
+        timer.setRepeats(false); // Para que el Timer solo se ejecute una vez
+        timer.start();
     }//GEN-LAST:event_jBtnIncorrectaActionPerformed
 
     private void jBtnCorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCorrectaActionPerformed
@@ -161,7 +211,7 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaValidarPalabra().setVisible(true);
+                new PantallaValidarPalabra("").setVisible(true);
             }
         });
     }
@@ -171,6 +221,9 @@ public class PantallaValidarPalabra extends javax.swing.JFrame {
     private javax.swing.JButton jBtnIncorrecta;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLblExito;
+    private javax.swing.JLabel jLblLetraParticipante;
+    private javax.swing.JLabel jLblPalabra;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

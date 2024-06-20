@@ -34,15 +34,6 @@ public class PantallaFinal extends javax.swing.JFrame {
         this.jLblNombreGanador.setText(ganador);
     }
 
-    @Override
-    public void dispose() {
-        super.dispose();
-        HiloJuego.getHiloJuego().currentFrame.dispose();
-        PantallaJuego pj = new PantallaJuego();
-        pj.setVisible(true);
-        HiloJuego.getHiloJuego().refresh();
-        super.dispose();
-    }
 
     /**
      * Creates new form PantallaFinal
@@ -87,8 +78,10 @@ public class PantallaFinal extends javax.swing.JFrame {
         jLblGanador1 = new javax.swing.JLabel();
         jLblTurnoParticipante1 = new javax.swing.JLabel();
         jLblFinal1 = new javax.swing.JLabel();
+        jBtnConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         jPnl0.setBackground(new java.awt.Color(204, 204, 255));
@@ -118,6 +111,16 @@ public class PantallaFinal extends javax.swing.JFrame {
         jLblFinal1.setFont(new java.awt.Font("Gill Sans Ultra Bold", 2, 36)); // NOI18N
         jLblFinal1.setText("DE JUGADORES ");
 
+        jBtnConfirmar.setBackground(new java.awt.Color(255, 153, 102));
+        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BTNCONFIRMAR.png"))); // NOI18N
+        jBtnConfirmar.setContentAreaFilled(false);
+        jBtnConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConfirmarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPnl0Layout = new javax.swing.GroupLayout(jPnl0);
         jPnl0.setLayout(jPnl0Layout);
         jPnl0Layout.setHorizontalGroup(
@@ -141,8 +144,13 @@ public class PantallaFinal extends javax.swing.JFrame {
                 .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnl0Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addGroup(jPnl0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnl0Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(165, 165, 165))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnl0Layout.createSequentialGroup()
+                        .addComponent(jBtnConfirmar)
+                        .addGap(263, 263, 263))))
         );
         jPnl0Layout.setVerticalGroup(
             jPnl0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +168,11 @@ public class PantallaFinal extends javax.swing.JFrame {
                     .addComponent(jLblNombreGanador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jLblGanador1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jBtnConfirmar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,11 +183,21 @@ public class PantallaFinal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPnl0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPnl0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
+        HiloJuego.getHiloJuego().currentFrame.dispose();
+        PantallaJuego pj = new PantallaJuego();
+        pj.setVisible(true);
+        HiloJuego.getHiloJuego().refresh();
+        dispose();
+    }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +235,7 @@ public class PantallaFinal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnConfirmar;
     private javax.swing.JLabel jLblFinal;
     private javax.swing.JLabel jLblFinal1;
     private javax.swing.JLabel jLblGanador;
